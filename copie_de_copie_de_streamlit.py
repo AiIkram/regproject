@@ -26,8 +26,9 @@ if data is not None:
     st.write("Dataset Preview:", df.head())
 
     # Feature selection
-    X = df.drop(columns=['price'])
-    y = df['price']
+    df_numeric = df.select_dtypes(include=['number'])
+    X = df_numeric.drop(columns=['price'])
+    y = df_numeric['price']
 
     # Train model
     model = LinearRegression()
