@@ -26,8 +26,8 @@ if data is not None:
     st.write("Dataset Preview:", df.head())
 
     # Feature selection
-    X = df.iloc[:, :-1]
-    y = df.iloc[:, -1]
+    X = df.drop(columns=['price'])
+    y = df['price']
 
     # Train model
     model = LinearRegression()
