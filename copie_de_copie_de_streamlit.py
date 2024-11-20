@@ -14,6 +14,7 @@ The app will allow users to upload a dataset, train a model, and make prediction
 import streamlit as st
 import pandas as pd
 from sklearn.linear_model import LinearRegression
+import matplotlib.pyplot as plt
 
 # App title
 st.title("House Price Prediction")
