@@ -24,6 +24,16 @@ data = st.file_uploader("Upload your dataset (CSV)", type=["csv"])
 if data is not None:
     df = pd.read_csv(data)
     st.write("Dataset Preview:", df.head())
+    # Scatter plot: Area vs Price
+    if 'area' in df.columns:
+        fig, ax = plt.subplots()
+        ax.scatter(df['area'], df['price'], color='blue', alpha=0.5)
+        ax.set_xlabel('Area')
+        ax.set_ylabel('Price')
+        ax.set_title('Area vs House Price')
+        st.pyplot(fig)
+    else:
+        st.warning("The dataset does not contain an 'area' column for plotting.")
 
     # Feature selection
     df_numeric = df.select_dtypes(include=['number'])
